@@ -22,6 +22,11 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Create gradle.properties
+        run: |
+          echo "android.useAndroidX=true" >> gradle.properties
+          echo "android.enableJetifier=true" >> gradle.properties
+
       - name: Build Debug APK
         run: gradle assembleDebug --stacktrace
 
