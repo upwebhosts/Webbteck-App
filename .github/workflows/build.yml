@@ -23,10 +23,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build Debug APK
-        run: gradle assembleDebug --stacktrace
+        run: gradle assembleDebug -Pandroid.useAndroidX=true -Pandroid.enableJetifier=true --stacktrace
 
       - name: Build Release AAB
-        run: gradle bundleRelease --stacktrace
+        run: gradle bundleRelease -Pandroid.useAndroidX=true -Pandroid.enableJetifier=true --stacktrace
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
